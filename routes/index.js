@@ -2,7 +2,7 @@
 
 // (a)使用モジュールの読み込み
 var express = require('express');
-var uuid = require('node-uuid');
+var uuidv4 = require('uuid/v4');
 var moment = require('moment');
 var memo = require('../models/memo');
 var package = require('../package.json');
@@ -33,7 +33,7 @@ router.get('/memos/:id([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{
 
 // (4)新規メモの保存
 router.post('/memos', function(req, res) {
-  var id = uuid.v4();
+  var id = uuidv4();
   var doc = {
     title : req.body.title,
     content : req.body.content,
